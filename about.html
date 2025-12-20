@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – Perspective</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Site Styles -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Perspective Logo" />
+                <span>Perspective</span>
+            </a>
+            <nav id="main-nav" class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <!-- Call to action button linking to GitHub -->
+                <a href="https://github.com/perspective-dev/perspective" class="nav-cta" target="_blank" rel="noopener">GitHub</a>
+                <!-- Secondary button for users to join the early waitlist -->
+                <a href="#" class="nav-cta" id="join-waitlist">Join Waitlist</a>
+                <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section for About -->
+    <section class="hero">
+        <!-- Floating shapes for decoration -->
+        <div class="floating-shape" style="width: 350px; height: 350px; background: linear-gradient(135deg, var(--accent), var(--highlight)); top: -80px; left: -120px;"></div>
+        <div class="floating-shape" style="width: 250px; height: 250px; background: linear-gradient(135deg, var(--highlight), var(--accent)); bottom: -60px; right: -100px;"></div>
+        <div class="container hero-content reveal">
+            <h1 class="hero-title">About Perspective</h1>
+            <p class="hero-subtitle">Our story, why we started, and where we’re going.</p>
+        </div>
+    </section>
+    <!-- About Content -->
+    <section class="section section-light">
+        <div class="container reveal">
+            <h2 class="section-title">The Problem We’re Solving</h2>
+            <p class="section-text">
+                In today’s hyper‑connected world, following important stories across borders is harder than ever. Millions of people
+                want to understand news from the United States and India, but almost two‑thirds of them feel overwhelmed by the
+                sheer volume of articles, sensational headlines, and biased takes. Key details get buried, important context
+                goes missing and it’s exhausting to piece together a complete picture.
+            </p>
+            <h2 class="section-title">Why Perspective?</h2>
+            <p class="section-text">
+                Perspective was born from a simple belief: everyone deserves clear, comprehensive information to make
+                informed decisions. We set out to build a platform that cuts through the noise, bringing together diverse
+                sources, summarising the facts, and exposing the ways stories are framed. With AI assisting our curation,
+                we hope to empower you to see beyond a single headline and form your own opinions.
+            </p>
+            <h2 class="section-title">Our Vision for the Future</h2>
+            <p class="section-text">
+                We’re just getting started. In the coming months you’ll see curated feeds tailored to your interests, deep‑dives
+                on trending topics, transparent analysis of biases and tone, and interactive tools to explore differing
+                viewpoints. Our mission is to become the world’s most trusted destination for multi‑perspective news.
+            </p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Perspective. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

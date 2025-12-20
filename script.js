@@ -8,17 +8,32 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.classList.toggle('open');
     });
 
-    // Smooth scrolling for navigation links
+    // Theme toggle button
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            // Toggle dark mode class on the body
+            document.body.classList.toggle('dark-mode');
+            // Update button label based on current theme
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        });
+    }
+
+    // Navigation link behaviour
     document.querySelectorAll('.nav a').forEach(link => {
         link.addEventListener('click', evt => {
-            evt.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetEl = document.querySelector(targetId);
-            if (targetEl) {
-                targetEl.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = link.getAttribute('href');
+            // If this is an in-page anchor link, enable smooth scrolling
+            if (href && href.startsWith('#')) {
+                evt.preventDefault();
+                const targetEl = document.querySelector(href);
+                if (targetEl) {
+                    targetEl.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
             // Close navigation on mobile after selection
             if (nav.classList.contains('open')) {
