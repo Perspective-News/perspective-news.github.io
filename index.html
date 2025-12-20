@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perspective – Multi‑Perspective News Platform</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Site Styles -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                <!-- Logo image at project root -->
+                <img src="logo.png" alt="Perspective Logo" />
+                <span>Perspective</span>
+            </a>
+            <nav id="main-nav" class="nav">
+                <ul>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#cta">Join Us</a></li>
+                </ul>
+            </nav>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-content reveal">
+            <h1 class="hero-title">See the world from every&nbsp;perspective</h1>
+            <p class="hero-subtitle">Stay informed with balanced summaries and get the full picture of the stories that matter.</p>
+            <div class="hero-cta">
+                <a href="#features" class="btn btn-primary">Explore</a>
+                <a href="#cta" class="btn btn-secondary">Join the Community</a>
+            </div>
+        </div>
+        <!-- Decorative geometric shape -->
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section section-dark">
+        <div class="container reveal">
+            <h2 class="section-title">The Problem</h2>
+            <p class="section-text">
+                65&nbsp;million people strive to follow news about India and the USA, yet nearly 70&nbsp;percent feel they don’t know
+                enough about the stories they care about. News is scattered across countless sites,
+                headlines are sensationalized and biased, and it’s hard to piece together the full
+                picture. This leads to confusion, mistrust and ultimately disengagement.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section section-light">
+        <div class="container reveal">
+            <h2 class="section-title">Our Solution</h2>
+            <p class="section-text">
+                Perspective is your AI‑powered companion for news. We aggregate stories from across the web,
+                summarize the facts, surface different angles and highlight what’s missing—so you can make up your own
+                mind. Our platform cuts through the noise, giving you quick access to unbiased information and
+                contrasting viewpoints in one place.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section section-dark features">
+        <div class="container reveal">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <!-- Inline SVG icon for summaries -->
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16v2H4zM4 8h16v2H4zM4 12h10v2H4zM4 16h16v2H4z" />
+                    </svg>
+                    <h3>Short Summaries</h3>
+                    <p>
+                        We condense lengthy articles into concise, fact‑checked summaries so you can stay up to date in minutes—not hours.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <!-- Icon for balanced feed -->
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1v22M1 12h22" />
+                        <circle cx="12" cy="12" r="5" />
+                    </svg>
+                    <h3>Balanced Feed</h3>
+                    <p>
+                        Our algorithm surfaces multiple sides of every story. Explore different framing, tone and emphasis to see
+                        where viewpoints converge or diverge.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <!-- Icon for personalization -->
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <h3>Personalized Reading</h3>
+                    <p>
+                        Tell us what you care about and we’ll recommend the most relevant stories. Your reading list adapts
+                        as your interests change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section section-light mission">
+        <div class="container reveal">
+            <h2 class="section-title">Mission &amp; Vision</h2>
+            <p class="section-text">
+                Our mission is to empower every person to make informed decisions by providing clear, comprehensive and
+                impartial news. We envision a world where access to balanced information fosters understanding,
+                empathy and collective progress.
+            </p>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section id="cta" class="section cta">
+        <div class="container reveal">
+            <h2 class="cta-title">Join the Conversation</h2>
+            <p class="cta-text">
+                Ready to see the bigger picture? Dive into our open‑source code, follow us on social and be part of
+                the movement for smarter news consumption.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/perspective-dev/perspective" class="btn btn-primary" target="_blank" rel="noopener">GitHub Repository</a>
+                <a href="https://instagram.com/perspectivenews" class="btn btn-secondary" target="_blank" rel="noopener">
+                    <!-- Instagram SVG Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37a4 4 0 1 1-7.94 1.43A4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                    </svg>
+                    Instagram
+                </a>
+                <a href="https://linkedin.com/company/perspectivenews" class="btn btn-secondary" target="_blank" rel="noopener">
+                    <!-- LinkedIn SVG Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Perspective. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Site Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
