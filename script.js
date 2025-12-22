@@ -20,7 +20,7 @@ function updateTimes(){
 setInterval(updateTimes,1000);
 updateTimes();
 
-fetch('output_events.json')
+fetch("./output_events.json")
  .then(r=>r.json())
  .then(data=>{
   const n=document.getElementById('news');
