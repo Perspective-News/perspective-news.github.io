@@ -27,12 +27,24 @@
     </div>
     <div id="times"></div>
   </div>
-  <div class="logo">PERSPECTIVE</div>
+  <div class="logo">
+    <img src="./logo.png" alt="Perspective Logo" />
+  </div>
 </header>
 
 <main>
-  <section id="news"></section>
+  <!-- Slider controls -->
+  <div class="slider-controls">
+    <button id="slideLeft">‹</button>
+    <button id="slideRight">›</button>
+  </div>
 
+  <!-- Slider -->
+  <section id="news-slider">
+    <div id="news-track"></div>
+  </section>
+
+  <!-- Waitlist -->
   <section class="waitlist">
     <h3>Join the Waitlist</h3>
     <input type="email" placeholder="Enter your email">
