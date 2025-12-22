@@ -1,98 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perspective – Balanced News for Everyone</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Site Styles -->
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>Perspective</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script defer src="script.js"></script>
 </head>
-<body>
-    <!-- Header with navigation and actions -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Perspective Logo" />
-                <span>Perspective</span>
-            </a>
-            <nav id="main-nav" class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="how-it-works.html">How It Works</a></li>
-                </ul>
-            </nav>
-            <!-- Actions: theme toggle and hamburger -->
-            <div class="nav-actions">
-                <!-- Call to action button linking to GitHub -->
-                <a href="https://github.com/perspective-dev/perspective" class="nav-cta" target="_blank" rel="noopener">GitHub</a>
-                <!-- Secondary button for users to join the early waitlist -->
-                <a href="#" class="nav-cta" id="join-waitlist">Join Waitlist</a>
-                <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
-                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
+<body class="light">
+<header>
+  <div class="top-ribbon">
+    <div class="left-controls">
+      <select><option>South Asia</option></select>
+      <select><option>English</option></select>
+      <button id="themeToggle">🌙</button>
+    </div>
+    <div id="times"></div>
+  </div>
+  <div class="logo">PERSPECTIVE</div>
+</header>
 
-    <!-- Hero / Placeholder Section -->
-    <section id="hero" class="hero">
-        <!-- Floating decorative shapes for movement -->
-        <div class="floating-shape" style="width: 400px; height: 400px; background: linear-gradient(135deg, var(--accent), var(--highlight)); top: -100px; left: -150px;"></div>
-        <div class="floating-shape" style="width: 300px; height: 300px; background: linear-gradient(135deg, var(--highlight), var(--accent)); bottom: -80px; right: -120px;"></div>
-        <div class="container hero-content reveal">
-            <h1 class="hero-title">Discover balanced perspectives</h1>
-            <p class="hero-subtitle">A modern platform delivering multi‑source news summaries.</p>
-            <div class="hero-cta">
-                <a href="https://github.com/perspective-dev/perspective" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
-            </div>
-        </div>
-    </section>
+<main>
+  <section id="news"></section>
 
-    <!-- Trending placeholder Section -->
-    <section class="trending">
-        <div class="container reveal">
-            <h2 class="section-title">Latest Stories</h2>
-            <div class="trending-grid">
-                <div class="trending-item">
-                    <div class="image-placeholder"></div>
-                    <div class="content">
-                        <h3>Headline Placeholder</h3>
-                        <p>Short description of a featured story. Content will appear here as the platform evolves.</p>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="image-placeholder"></div>
-                    <div class="content">
-                        <h3>Another Story</h3>
-                        <p>Stay tuned for more balanced news coverage from multiple sources, coming soon.</p>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="image-placeholder"></div>
-                    <div class="content">
-                        <h3>More to Come</h3>
-                        <p>We're working hard to curate diverse perspectives. Check back soon for updates.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="waitlist">
+    <h3>Join the Waitlist</h3>
+    <input type="email" placeholder="Enter your email">
+    <button>Enroll</button>
+  </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Perspective. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Site Scripts -->
-    <script src="script.js"></script>
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="social">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
 </body>
 </html>

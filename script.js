@@ -1,64 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('nav-toggle');
-    const nav = document.getElementById('main-nav');
 
-    // Toggle navigation on mobile
-    navToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        navToggle.classList.toggle('open');
-    });
+const toggle=document.getElementById('themeToggle');
+toggle.onclick=()=>{
+ document.body.classList.toggle('dark');
+ document.body.classList.toggle('light');
+};
 
-    // Theme toggle button
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            // Toggle dark mode class on the body
-            document.body.classList.toggle('dark-mode');
-            // Update button label based on current theme
-            const isDark = document.body.classList.contains('dark-mode');
-            themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-        });
-    }
+const zones={
+ 'Delhi':'Asia/Kolkata',
+ 'Karachi':'Asia/Karachi',
+ 'Dhaka':'Asia/Dhaka',
+ 'Colombo':'Asia/Colombo'
+};
+function updateTimes(){
+ const el=document.getElementById('times');
+ el.innerHTML=Object.entries(zones).map(([c,z])=>{
+  return c+': '+new Date().toLocaleTimeString('en-US',{timeZone:z,hour:'2-digit',minute:'2-digit'});
+ }).join(' | ');
+}
+setInterval(updateTimes,1000);
+updateTimes();
 
-    // Navigation link behaviour
-    document.querySelectorAll('.nav a').forEach(link => {
-        link.addEventListener('click', evt => {
-            const href = link.getAttribute('href');
-            // If this is an in-page anchor link, enable smooth scrolling
-            if (href && href.startsWith('#')) {
-                evt.preventDefault();
-                const targetEl = document.querySelector(href);
-                if (targetEl) {
-                    targetEl.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-            // Close navigation on mobile after selection
-            if (nav.classList.contains('open')) {
-                nav.classList.remove('open');
-                navToggle.classList.remove('open');
-            }
-        });
-    });
-
-    // Reveal elements on scroll using Intersection Observer
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Update footer year dynamically
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-});
+fetch('output_events.json')
+ .then(r=>r.json())
+ .then(data=>{
+  const n=document.getElementById('news');
+  data.forEach(e=>{
+    const d=document.createElement('div');
+    d.className='news-card';
+    d.innerHTML=`<h4>${e.title}</h4><p>${e.summary||''}</p>`;
+    n.appendChild(d);
+  });
+ });

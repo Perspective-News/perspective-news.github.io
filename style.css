@@ -1,528 +1,61 @@
-/* Root variables for colours and typography */
-/* Colour palette using CSS variables. These variables can be switched for light/dark modes. */
-:root {
-    /* Base colour palette – tuned to be a bit lighter and less saturated */
-    --bg: #f5f8fe;             /* very light off‑white for page backgrounds */
-    --primary: #3f51b5;        /* mid‑tone indigo for headers/nav */
-    --accent: #b0b5ff;         /* soft periwinkle accent for buttons/icons */
-    --highlight: #dfe7ff;      /* very pale blue highlight */
-    --text: #0b2565;           /* deeper navy for primary text */
-    --white: #ffffff;          /* white for pure elements */
-    --radius: 12px;            /* consistent border radius */
-    --shadow: rgba(0, 0, 0, 0.12); /* softer drop shadow */
-}
-
-/* Dark mode overrides. When the body has the `dark-mode` class these variables are used instead. */
-body.dark-mode {
-    /* Dark mode palette softened to better complement the lighter theme. Colours remain harmonious */
-    --bg: #0d1a47;
-    --primary: #101e70;
-    --accent: #6e6cff;
-    --highlight: #9dafff;
-    --text: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.4);
-}
-
-/* Global resets */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text);
-    margin-bottom: 1rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1.5rem;
-    margin: 0 auto;
-}
-
-/* Navigation styles */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--primary);
-    padding: 0.75rem 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px var(--shadow);
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--white);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.logo img {
-    /* Slightly larger logo to avoid cropping; maintain aspect ratio */
-    height: 48px;
-    width: auto;
-    margin-right: 0.5rem;
-}
-
-.nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav a {
-    text-decoration: none;
-    /* Use white nav links for better contrast against the primary header */
-    color: var(--white);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav a:hover {
-    color: var(--accent);
-}
-
-/* Hamburger menu button for mobile */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-}
-
-.nav-toggle span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    /* Use white lines for the hamburger icon so it stands out on the dark header */
-    background-color: var(--white);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Hamburger transform when menu is open */
-.nav-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.nav-toggle.open span:nth-child(2) {
-    opacity: 0;
-}
-.nav-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Hero section */
-.hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 5rem; /* offset for fixed header */
-    color: var(--text);
-    background-color: var(--primary);
-    overflow: hidden;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-}
-
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: 1.125rem;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    color: var(--text);
-}
-
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-/* Decorative shape behind hero text */
-.hero-shape {
-    position: absolute;
-    /* Position the decorative shape on the right so it doesn’t obscure the hero text */
-    right: -20%;
-    top: -15%;
-    width: 65%;
-    height: 130%;
-    background: linear-gradient(180deg, var(--accent), var(--highlight));
-    transform: skewX(-20deg) skewY(-10deg);
-    border-radius: 50% 50% 0 0;
-    z-index: 0;
-    opacity: 0.4;
-}
-
-/* Section styles */
-.section {
-    padding: 5rem 0;
-}
-
-.section-dark {
-    background-color: var(--primary);
-    color: var(--text);
-}
-
-.section-light {
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-/* Adjust text colour in light sections for better contrast */
-.section-light .section-text {
-    /* Use the standard text colour on light sections for readability */
-    color: var(--text);
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.section-text {
-    font-size: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--text);
-}
-
-/* Features grid */
-.features-grid {
-    display: grid;
-    gap: 2rem;
-    margin-top: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.feature-item {
-    background-color: var(--bg);
-    padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px var(--shadow);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--shadow);
-}
-
-.feature-icon {
-    color: var(--accent);
-    margin-bottom: 1rem;
-}
-
-.feature-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-}
-
-.feature-item p {
-    font-size: 0.95rem;
-    color: var(--text);
-}
-
-/* Mission section */
-.mission {
-    text-align: center;
-}
-
-/* CTA section */
-.cta {
-    text-align: center;
-    background-color: var(--primary);
-    padding: 6rem 0;
-}
-
-.cta-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-}
-
-.cta-text {
-    font-size: 1rem;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    color: var(--text);
-}
-
-.cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* Button styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius);
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--highlight));
-    color: var(--primary);
-    box-shadow: 0 4px 8px var(--shadow);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px var(--shadow);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-}
-
-.btn-secondary:hover {
-    background-color: var(--accent);
-    color: var(--primary);
-}
-
-/* Social icon spacing */
-.social-icon {
-    margin-right: 0.5rem;
-}
-
-/* Footer */
-.footer {
-    background-color: var(--primary);
-    padding: 1rem 0;
-    text-align: center;
-    font-size: 0.875rem;
-    color: var(--text);
-}
-
-/* Navigation action wrapper for theme toggle and hamburger */
-.nav-actions {
-    display: flex;
-    align-items: center;
-}
-
-.nav-actions > *:not(:last-child) {
-    margin-right: 1rem;
-}
-
-/* CTA button in the navigation bar */
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-    text-decoration: none;
-    /* Use the accent/highlight gradient like other primary buttons */
-    background: linear-gradient(135deg, var(--accent), var(--highlight));
-    color: var(--primary);
-    box-shadow: 0 2px 4px var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow);
-}
-
-/* Theme toggle button */
-.theme-toggle {
-    background: none;
-    border: 2px solid var(--accent);
-    border-radius: var(--radius);
-    padding: 0.5rem 1rem;
-    color: var(--accent);
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.theme-toggle:hover {
-    background-color: var(--accent);
-    color: var(--primary);
-}
-
-/* Floating decorative shapes */
-.floating-shape {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.25;
-    z-index: 0;
-    pointer-events: none;
-    animation: floatMove 12s ease-in-out infinite alternate;
-}
-
-@keyframes floatMove {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(-40px) rotate(10deg);
-    }
-}
-
-/* Trending section styles */
-.trending {
-    padding: 5rem 0;
-    background-color: var(--bg);
-}
-
-.trending-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-top: 3rem;
-}
-
-.trending-item {
-    background-color: var(--white);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 8px var(--shadow);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.trending-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--shadow);
-}
-
-.trending-item .image-placeholder {
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(135deg, var(--accent), var(--highlight));
-}
-
-.trending-item .content {
-    padding: 1rem;
-}
-
-.trending-item .content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-}
-
-.trending-item .content p {
-    font-size: 0.95rem;
-    color: var(--text);
-}
-
-/* Step section for how it works page */
-.steps-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-top: 3rem;
-}
-
-.step-item {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: 0 4px 8px var(--shadow);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.step-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--shadow);
-}
-
-.step-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--accent);
-}
-
-/* Reveal animations */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .nav ul {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--primary);
-        flex-direction: column;
-        width: 200px;
-        padding: 1rem;
-        gap: 1rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    }
-    .nav.open ul {
-        transform: translateX(0);
-    }
-    .nav-toggle {
-        display: flex;
-    }
-    .nav ul li {
-        margin: 0;
-    }
-}
+:root{
+ --bg-light:#ffffff;
+ --bg-dark:#05080d;
+ --text-light:#111;
+ --text-dark:#eee;
+ --navy:#05080d;
+}
+body{
+ margin:0;
+ font-family:Arial, sans-serif;
+}
+body.light{background:var(--bg-light);color:var(--text-light);}
+body.dark{background:var(--bg-dark);color:var(--text-dark);}
+
+.top-ribbon{
+ font-size:12px;
+ display:flex;
+ justify-content:space-between;
+ padding:6px 12px;
+ background:#f2f2f2;
+}
+body.dark .top-ribbon{background:#111;}
+
+.logo{
+ text-align:center;
+ font-size:36px;
+ padding:20px 0;
+ font-weight:bold;
+}
+
+#news{
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+ gap:16px;
+ padding:20px;
+}
+.news-card{
+ border:1px solid #ddd;
+ padding:12px;
+ border-radius:6px;
+ background:inherit;
+}
+
+.waitlist{
+ margin:40px auto;
+ text-align:center;
+ padding:20px;
+ border:1px solid #ccc;
+ width:300px;
+}
+
+footer{
+ background:var(--navy);
+ color:#ccc;
+ padding:20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+footer a{color:#ccc;margin-right:12px;text-decoration:none;}
