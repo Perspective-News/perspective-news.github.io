@@ -19,17 +19,54 @@
 
 <body class="light">
 <header>
+
   <div class="top-ribbon">
-    <div class="left-controls">
-      <select><option>South Asia</option></select>
-      <select><option>English</option></select>
-      <button id="themeToggle">🌙</button>
+    <!-- LEFT SIDE -->
+    <div class="ribbon-left">
+      <!-- Theme Toggle -->
+      <div class="theme-toggle">
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle">
+          <span class="toggle-icon sun">☀️</span>
+          <span class="toggle-icon moon">🌙</span>
+        </label>
+      </div>
+
+      <!-- Region -->
+      <div class="region-selector">
+        <select id="regionSelect"></select>
+      </div>
+
+      <!-- Language -->
+      <div class="language-selector">
+        <select id="languageSelect"></select>
+      </div>
     </div>
+
+    <!-- RIGHT SIDE -->
     <div id="times"></div>
   </div>
-  <div class="logo">
-    <img src="./logo.png" alt="Perspective Logo" />
+
+
+
+  <!-- Secondary Navigation Ribbon -->
+  <div class="nav-ribbon">
+    <div class="nav-left">
+      <img src="./logo.png" alt="Perspective" />
+    </div>
+
+    <div class="nav-center">
+      <a href="#" class="nav-item">Political</a>
+      <a href="#" class="nav-item">Business</a>
+      <a href="#" class="nav-item">Sports</a>
+      <a href="#" class="nav-item">Entertainment</a>
+    </div>
+
+    <div class="nav-right">
+      <input type="text" placeholder="Search news..." />
+    </div>
   </div>
+
 </header>
 
 <main>
