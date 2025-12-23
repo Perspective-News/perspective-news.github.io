@@ -42,4 +42,336 @@ body.dark {
 ====================================================== */
 .top-ribbon {
   display: flex;
-  justify-content: spac
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 22px;
+  font-size: 13.5px;
+  background: var(--surface-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+body.dark .top-ribbon {
+  background: var(--surface-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+/* LEFT GROUP */
+.ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* DROPDOWNS */
+.region-selector select,
+.language-selector select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+  cursor: pointer;
+}
+
+.region-selector select:focus,
+.language-selector select:focus {
+  outline: none;
+}
+
+/* TIME DISPLAY */
+#times {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ======================================================
+   THEME TOGGLE (Animated, Visible in Dark Mode)
+====================================================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  padding-bottom: 2px; /* visual centering */
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+.theme-toggle label {
+  position: relative;
+  width: 42px;
+  height: 22px;
+  background: #d1d5db; /* light mode track */
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.dark .theme-toggle label {
+  background: #374151; /* dark mode visible */
+}
+
+.theme-toggle label::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.theme-toggle input:checked + label::before {
+  transform: translateX(20px);
+}
+
+/* TOGGLE ICONS */
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.toggle-icon.sun {
+  left: 6px;
+  color: #f59e0b;
+}
+
+.toggle-icon.moon {
+  right: 6px;
+  color: #e5e7eb;
+  opacity: 0;
+}
+
+.theme-toggle input:checked + label .sun {
+  opacity: 0;
+}
+
+.theme-toggle input:checked + label .moon {
+  opacity: 1;
+}
+
+/* ======================================================
+   SECONDARY NAV RIBBON (Genres + Search)
+====================================================== */
+.nav-ribbon {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--surface-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+body.dark .nav-ribbon {
+  background: var(--surface-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+/* Logo */
+.nav-left img {
+  height: 26px;
+}
+
+/* Genres */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.nav-item {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Search */
+.nav-right input {
+  width: 180px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: inherit;
+}
+
+body.dark .nav-right input {
+  border-color: var(--border-dark);
+}
+
+/* ======================================================
+   MAIN LOGO
+====================================================== */
+.logo {
+  text-align: center;
+  padding: 28px 0;
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* ======================================================
+   NEWS SLIDER
+====================================================== */
+#news-slider {
+  overflow: hidden;
+  padding: 20px;
+}
+
+#news-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Slider buttons */
+.slider-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 20px;
+}
+
+.slider-controls button {
+  border: 1px solid var(--border-light);
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+body.dark .slider-controls button {
+  border-color: var(--border-dark);
+}
+
+/* ======================================================
+   NEWS CARD
+====================================================== */
+.news-card {
+  width: 300px;
+  padding: 16px;
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+}
+
+body.dark .news-card {
+  background: var(--surface-dark);
+  border-color: var(--border-dark);
+}
+
+.news-card h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.news-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.sources {
+  font-size: 13px;
+}
+
+.sources a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ======================================================
+   WAITLIST
+====================================================== */
+.waitlist {
+  margin: 40px auto;
+  padding: 24px;
+  width: 320px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+body.dark .waitlist {
+  border-color: var(--border-dark);
+}
+
+.waitlist input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.waitlist button {
+  padding: 8px 14px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer {
+  background: #05080d;
+  color: #cbd5e1;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-right: 14px;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 900px) {
+  .nav-center {
+    gap: 16px;
+  }
+
+  .nav-right input {
+    width: 140px;
+  }
+
+  #news-track {
+    grid-template-rows: 1fr;
+  }
+}
