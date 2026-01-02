@@ -1,0 +1,255 @@
+/* ======================================================
+   INFO PAGES ONLY — About / Privacy / How It Works
+   This file is intentionally scoped.
+   Pages must use: <body class="info-page">
+====================================================== */
+
+/* ======================================================
+   PAGE BACKGROUND
+====================================================== */
+body.info-page {
+  background: var(--bg-light);
+}
+
+body.info-page.dark {
+  background: var(--bg-dark);
+}
+
+/* ======================================================
+   CONTENT CONTAINER
+====================================================== */
+.info-page .info-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.info-page .page-hero {
+  padding: 70px 0 40px;
+}
+
+.info-page .page-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.info-page .page-hero h1 {
+  margin: 0 0 16px;
+  font-size: 44px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.info-page .page-hero .lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 760px;
+  color: #4b5563;
+}
+
+body.dark.info-page .page-hero .lead {
+  color: #9ca3af;
+}
+
+/* ======================================================
+   DIVIDER
+====================================================== */
+.info-page .divider {
+  border: none;
+  height: 1px;
+  background: var(--border-light);
+  margin: 0;
+}
+
+body.dark.info-page .divider {
+  background: var(--border-dark);
+}
+
+/* ======================================================
+   SECTIONS
+====================================================== */
+.info-page .info-section {
+  padding: 44px 0;
+}
+
+.info-page .info-section .section-title {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+}
+
+.info-page .info-section .section-text {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.8;
+  max-width: 780px;
+  color: #374151;
+}
+
+body.dark.info-page .info-section .section-text {
+  color: #9ca3af;
+}
+
+/* ======================================================
+   SPLIT SECTIONS (Text + Visual)
+====================================================== */
+.info-page .split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.info-page .visual {
+  height: 260px;
+  border-radius: 18px;
+  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
+
+body.dark.info-page .visual {
+  border-color: var(--border-dark);
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+/* ======================================================
+   BULLET LISTS
+====================================================== */
+.info-page .bullets {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.info-page .bullets li {
+  position: relative;
+  padding-left: 18px;
+  margin: 10px 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+body.dark.info-page .bullets li {
+  color: #9ca3af;
+}
+
+.info-page .bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ======================================================
+   CALLOUT BOX
+====================================================== */
+.info-page .callout {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  background: var(--surface-light);
+}
+
+body.dark.info-page .callout {
+  border-color: var(--border-dark);
+  background: var(--surface-dark);
+}
+
+.info-page .callout p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+body.dark.info-page .callout p {
+  color: #9ca3af;
+}
+
+/* ======================================================
+   MINI GRID (3-UP)
+====================================================== */
+.info-page .mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.info-page .mini-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  background: var(--surface-light);
+  padding: 16px;
+}
+
+body.dark.info-page .mini-card {
+  border-color: var(--border-dark);
+  background: var(--surface-dark);
+}
+
+.info-page .mini-card .mini-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.info-page .mini-card .mini-text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+body.dark.info-page .mini-card .mini-text {
+  color: #9ca3af;
+}
+
+/* ======================================================
+   INFO PAGE FOOTER BLOCK
+====================================================== */
+.info-page .info-footer {
+  padding: 26px 0 60px;
+  font-size: 14.5px;
+  color: #4b5563;
+}
+
+body.dark.info-page .info-footer {
+  color: #9ca3af;
+}
+
+.info-page .info-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 900px) {
+  .info-page .page-hero h1 {
+    font-size: 34px;
+  }
+
+  .info-page .split {
+    grid-template-columns: 1fr;
+  }
+
+  .info-page .visual {
+    height: 220px;
+  }
+
+  .info-page .mini-grid {
+    grid-template-columns: 1fr;
+  }
+}

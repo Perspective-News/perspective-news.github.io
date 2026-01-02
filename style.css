@@ -1,5 +1,5 @@
 /* ======================================================
-   CSS VARIABLES (Design Tokens)
+   VARIABLES
 ====================================================== */
 :root {
   --bg-light: #faf7f2;
@@ -18,7 +18,7 @@
 }
 
 /* ======================================================
-   BASE STYLES
+   BASE
 ====================================================== */
 * {
   box-sizing: border-box;
@@ -26,8 +26,14 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   background: var(--bg-light);
   color: var(--text-light);
 }
@@ -38,7 +44,7 @@ body.dark {
 }
 
 /* ======================================================
-   TOP RIBBON (Edition / Language / Toggle / Time)
+   TOP RIBBON
 ====================================================== */
 .top-ribbon {
   display: flex;
@@ -52,21 +58,19 @@ body.dark {
 
 body.dark .top-ribbon {
   background: var(--surface-dark);
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom-color: var(--border-dark);
 }
 
-/* LEFT GROUP */
 .ribbon-left {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* DROPDOWNS */
 .region-selector select,
 .language-selector select {
   appearance: none;
-  background: transparent;
+  background: none;
   border: none;
   font-size: 14px;
   font-weight: 500;
@@ -74,63 +78,68 @@ body.dark .top-ribbon {
   cursor: pointer;
 }
 
-.region-selector select:focus,
-.language-selector select:focus {
-  outline: none;
-}
-
-/* TIME DISPLAY */
 #times {
   white-space: nowrap;
-  font-weight: 500;
 }
 
 /* ======================================================
-   THEME TOGGLE (Animated, Visible in Dark Mode)
+   THEME TOGGLE
 ====================================================== */
+
+/* keep toggle visually isolated from page colors */
 .theme-toggle {
   display: flex;
   align-items: center;
-  margin-right: 4px;
-  padding-bottom: 2px; /* visual centering */
 }
 
+/* hide checkbox */
 .theme-toggle input {
   display: none;
 }
 
+/* toggle track */
 .theme-toggle label {
   position: relative;
   width: 42px;
   height: 22px;
-  background: #d1d5db; /* light mode track */
   border-radius: 999px;
   cursor: pointer;
-  transition: background 0.3s ease;
+
+  /* explicit colors (do NOT inherit) */
+  background: #e5e7eb;
+  border: 1px solid #d1d5db;
+
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
+/* dark mode track */
 body.dark .theme-toggle label {
-  background: #374151; /* dark mode visible */
+  background: #1f2937;
+  border-color: #374151;
 }
 
+/* toggle knob */
 .theme-toggle label::before {
   content: "";
   position: absolute;
-  top: 3px;
+  top: 2.5px;
   left: 3px;
   width: 16px;
   height: 16px;
-  background: #ffffff;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+
+  background: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.25s ease;
 }
 
+/* knob position when checked */
 .theme-toggle input:checked + label::before {
   transform: translateX(20px);
 }
 
-/* TOGGLE ICONS */
+/* icons */
 .toggle-icon {
   position: absolute;
   top: 50%;
@@ -139,17 +148,21 @@ body.dark .theme-toggle label {
   pointer-events: none;
 }
 
+/* sun */
 .toggle-icon.sun {
   left: 6px;
   color: #f59e0b;
+  opacity: 1;
 }
 
+/* moon */
 .toggle-icon.moon {
   right: 6px;
-  color: #e5e7eb;
+  color: #9ca3af;
   opacity: 0;
 }
 
+/* icon visibility swap */
 .theme-toggle input:checked + label .sun {
   opacity: 0;
 }
@@ -159,7 +172,7 @@ body.dark .theme-toggle label {
 }
 
 /* ======================================================
-   SECONDARY NAV RIBBON (Genres + Search)
+   NAV RIBBON
 ====================================================== */
 .nav-ribbon {
   display: grid;
@@ -172,15 +185,13 @@ body.dark .theme-toggle label {
 
 body.dark .nav-ribbon {
   background: var(--surface-dark);
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom-color: var(--border-dark);
 }
 
-/* Logo */
 .nav-left img {
   height: 26px;
 }
 
-/* Genres */
 .nav-center {
   display: flex;
   justify-content: center;
@@ -188,10 +199,10 @@ body.dark .nav-ribbon {
 }
 
 .nav-item {
-  font-size: 14px;
-  font-weight: 500;
   text-decoration: none;
   color: inherit;
+  font-size: 14px;
+  font-weight: 500;
   position: relative;
 }
 
@@ -211,78 +222,39 @@ body.dark .nav-ribbon {
   transform: scaleX(1);
 }
 
-/* Search */
 .nav-right input {
   width: 180px;
   padding: 6px 10px;
-  font-size: 13px;
   border-radius: 6px;
   border: 1px solid var(--border-light);
   background: transparent;
   color: inherit;
 }
 
-body.dark .nav-right input {
-  border-color: var(--border-dark);
-}
-
 /* ======================================================
-   MAIN LOGO
+   NEWS FEED
 ====================================================== */
-.logo {
-  text-align: center;
-  padding: 28px 0;
+.news-feed {
+  padding: 18px 20px;
 }
 
-.logo img {
-  height: 60px;
-}
-
-/* ======================================================
-   NEWS SLIDER
-====================================================== */
-#news-slider {
-  overflow: hidden;
-  padding: 20px;
-}
-
-#news-track {
+.news-grid {
   display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  transition: transform 0.3s ease;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
 
-/* Slider buttons */
-.slider-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  padding: 0 20px;
+.news-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
 }
 
-.slider-controls button {
-  border: 1px solid var(--border-light);
-  background: transparent;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-body.dark .slider-controls button {
-  border-color: var(--border-dark);
-}
-
-/* ======================================================
-   NEWS CARD
-====================================================== */
 .news-card {
-  width: 300px;
-  padding: 16px;
-  background: var(--surface-light);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  background: var(--surface-light);
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 body.dark .news-card {
@@ -290,24 +262,78 @@ body.dark .news-card {
   border-color: var(--border-dark);
 }
 
-.news-card h4 {
+.news-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+}
+
+.news-card--small .news-card-inner {
+  grid-template-columns: 1fr 220px;
+}
+
+.news-content {
+  padding: 18px;
+}
+
+.news-title {
+  font-size: 26px;
   margin: 0 0 10px;
-  font-size: 18px;
 }
 
-.news-card p {
-  font-size: 15px;
-  line-height: 1.55;
-  margin-bottom: 12px;
+.news-summary {
+  font-size: 15.5px;
+  line-height: 1.7;
 }
 
-.sources {
-  font-size: 13px;
+.news-visual {
+  border-left: 1px solid var(--border-light);
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
 }
 
-.sources a {
-  color: var(--accent);
-  text-decoration: none;
+body.dark .news-visual {
+  border-left-color: var(--border-dark);
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+/* ======================================================
+   COUNTRY COVERAGE GRAPH
+====================================================== */
+.country-graph {
+  display: flex;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+body.dark .country-graph {
+  border-color: var(--border-dark);
+}
+
+.country-segment {
+  height: 100%;
+  cursor: pointer;
+}
+
+/* ======================================================
+   TOOLTIP (FIXED — THIS NOW WORKS)
+====================================================== */
+.coverage-tooltip {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  white-space: nowrap;
+  transition: opacity 0.12s ease;
+}
+
+.coverage-tooltip.show {
+  opacity: 1;
 }
 
 /* ======================================================
@@ -320,10 +346,6 @@ body.dark .news-card {
   text-align: center;
   border-radius: 12px;
   border: 1px solid var(--border-light);
-}
-
-body.dark .waitlist {
-  border-color: var(--border-dark);
 }
 
 .waitlist input {
@@ -342,275 +364,62 @@ body.dark .waitlist {
 }
 
 /* ======================================================
-   FOOTER
+   FOOTER — FIXED
 ====================================================== */
 footer {
   background: #05080d;
   color: #cbd5e1;
-  padding: 24px;
+  padding: 26px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-footer a {
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a {
   color: #cbd5e1;
   text-decoration: none;
-  margin-right: 14px;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+footer .social {
+  display: flex;
+  gap: 14px;
+}
+
+footer .social a {
+  color: #cbd5e1;
+  font-size: 18px;
 }
 
 /* ======================================================
    RESPONSIVE
 ====================================================== */
 @media (max-width: 900px) {
-  .nav-center {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .news-visual {
+    height: 200px;
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+  }
+
+  footer {
+    flex-direction: column;
     gap: 16px;
-  }
-
-  .nav-right input {
-    width: 140px;
-  }
-
-  #news-track {
-    grid-template-rows: 1fr;
-  }
-}
-
-/* ======================================================
-   INFO PAGES (SCOPED) — About / Privacy / How It Works
-   IMPORTANT: everything is prefixed with .info-page
-   so it does NOT change index formatting
-====================================================== */
-
-/* Wrapper: add class="info-page" to body on these pages */
-body.info-page {
-  background: var(--bg-light);
-}
-
-body.info-page.dark {
-  background: var(--bg-dark);
-}
-
-/* Constrain content width like Ground News */
-.info-page .info-container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* HERO */
-.info-page .page-hero {
-  padding: 70px 0 40px;
-  text-align: left;
-}
-
-.info-page .page-hero .eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
-}
-
-.info-page .page-hero h1 {
-  margin: 0 0 16px;
-  font-size: 44px;
-  font-weight: 650;
-  letter-spacing: -0.03em;
-}
-
-.info-page .page-hero .lead {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.75;
-  max-width: 760px;
-  color: #4b5563;
-}
-
-body.dark.info-page .page-hero .lead {
-  color: #9ca3af;
-}
-
-/* DIVIDER */
-.info-page .divider {
-  border: none;
-  height: 1px;
-  background: var(--border-light);
-  margin: 0;
-}
-
-body.dark.info-page .divider {
-  background: var(--border-dark);
-}
-
-/* SECTION */
-.info-page .info-section {
-  padding: 44px 0;
-}
-
-.info-page .info-section .section-title {
-  margin: 0 0 14px;
-  font-size: 28px;
-  font-weight: 620;
-  letter-spacing: -0.02em;
-}
-
-.info-page .info-section .section-text {
-  margin: 0;
-  font-size: 16.5px;
-  line-height: 1.8;
-  max-width: 780px;
-  color: #374151;
-}
-
-body.dark.info-page .info-section .section-text {
-  color: #9ca3af;
-}
-
-/* SPLIT SECTIONS (text + visual block) */
-.info-page .split {
-  display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  gap: 44px;
-  align-items: center;
-}
-
-.info-page .visual {
-  border-radius: 18px;
-  border: 1px solid var(--border-light);
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  height: 260px;
-}
-
-body.dark.info-page .visual {
-  border-color: var(--border-dark);
-  background: linear-gradient(135deg, #0f172a, #111827);
-}
-
-/* BULLETS (social-friendly, clean) */
-.info-page .bullets {
-  margin: 18px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.info-page .bullets li {
-  position: relative;
-  padding-left: 18px;
-  margin: 10px 0;
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: #374151;
-}
-
-body.dark.info-page .bullets li {
-  color: #9ca3af;
-}
-
-.info-page .bullets li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-/* CALLOUT (nice for Privacy / How it Works) */
-.info-page .callout {
-  margin-top: 22px;
-  padding: 16px 16px;
-  border-radius: 14px;
-  border: 1px solid var(--border-light);
-  background: var(--surface-light);
-}
-
-body.dark.info-page .callout {
-  border-color: var(--border-dark);
-  background: var(--surface-dark);
-}
-
-.info-page .callout p {
-  margin: 0;
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: #374151;
-}
-
-body.dark.info-page .callout p {
-  color: #9ca3af;
-}
-
-.info-page .callout strong {
-  color: inherit;
-}
-
-/* MINI GRID (3-up blocks like Ground about pages) */
-.info-page .mini-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.info-page .mini-card {
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
-  background: var(--surface-light);
-  padding: 16px 16px;
-}
-
-body.dark.info-page .mini-card {
-  border-color: var(--border-dark);
-  background: var(--surface-dark);
-}
-
-.info-page .mini-card .mini-title {
-  margin: 0 0 8px;
-  font-size: 15px;
-  font-weight: 650;
-}
-
-.info-page .mini-card .mini-text {
-  margin: 0;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: #4b5563;
-}
-
-body.dark.info-page .mini-card .mini-text {
-  color: #9ca3af;
-}
-
-/* INFO PAGE FOOTER BLOCK (optional, does not touch your main footer) */
-.info-page .info-footer {
-  padding: 26px 0 60px;
-  color: #4b5563;
-  font-size: 14.5px;
-}
-
-body.dark.info-page .info-footer {
-  color: #9ca3af;
-}
-
-.info-page .info-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* RESPONSIVE for info pages */
-@media (max-width: 900px) {
-  .info-page .page-hero h1 {
-    font-size: 34px;
-  }
-
-  .info-page .split {
-    grid-template-columns: 1fr;
-  }
-
-  .info-page .visual {
-    height: 220px;
-  }
-
-  .info-page .mini-grid {
-    grid-template-columns: 1fr;
   }
 }

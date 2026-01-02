@@ -70,15 +70,17 @@
 </header>
 
 <main>
-  <!-- Slider controls -->
-  <div class="slider-controls">
-    <button id="slideLeft">‹</button>
-    <button id="slideRight">›</button>
-  </div>
+  <!-- News feed (region-driven) -->
+  <section id="news-feed" class="news-feed">
+    <div id="news-empty" class="news-empty" hidden>
+      No stories found for this region.
+    </div>
 
-  <!-- Slider -->
-  <section id="news-slider">
-    <div id="news-track"></div>
+    <!-- Top 4 (2x2) -->
+    <div id="top-grid" class="news-grid"></div>
+
+    <!-- Rest (stacked full-width cards) -->
+    <div id="rest-list" class="news-list"></div>
   </section>
 
   <!-- Waitlist -->
