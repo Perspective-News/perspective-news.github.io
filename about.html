@@ -1,86 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About – Perspective</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Site Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>About — Perspective</title>
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <script defer src="./script.js"></script>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Perspective Logo" />
-                <span>Perspective</span>
-            </a>
-            <nav id="main-nav" class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="how-it-works.html">How It Works</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <!-- Call to action button linking to GitHub -->
-                <a href="https://github.com/perspective-dev/perspective" class="nav-cta" target="_blank" rel="noopener">GitHub</a>
-                <!-- Secondary button for users to join the early waitlist -->
-                <a href="#" class="nav-cta" id="join-waitlist">Join Waitlist</a>
-                <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
-                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+
+<body class="light info-page">
+<header>
+
+  <div class="top-ribbon">
+    <div class="ribbon-left">
+      <div class="theme-toggle">
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle">
+          <span class="toggle-icon sun">☀️</span>
+          <span class="toggle-icon moon">🌙</span>
+        </label>
+      </div>
+
+      <div class="region-selector">
+        <select id="regionSelect"></select>
+      </div>
+
+      <div class="language-selector">
+        <select id="languageSelect"></select>
+      </div>
+    </div>
+
+    <div id="times"></div>
+  </div>
+
+  <div class="nav-ribbon">
+    <div class="nav-left">
+      <a href="index.html" aria-label="Go to homepage">
+        <img src="./logo.png" alt="Perspective" />
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <a href="#" class="nav-item">Political</a>
+      <a href="#" class="nav-item">Business</a>
+      <a href="#" class="nav-item">Sports</a>
+      <a href="#" class="nav-item">Entertainment</a>
+    </div>
+
+    <div class="nav-right">
+      <input type="text" placeholder="Search news..." />
+    </div>
+  </div>
+
+</header>
+
+<main class="info-container">
+  <section class="page-hero">
+    <div class="eyebrow">About</div>
+    <h1>Understanding News Beyond a Single Narrative</h1>
+    <p class="lead">
+      Perspective is a research-driven platform exploring how multi-source aggregation and
+      AI-assisted summarization can support clearer, more balanced news understanding.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="info-section split">
+    <div>
+      <h2 class="section-title">The Problem</h2>
+      <p class="section-text">
+        Contemporary news consumption is shaped by algorithmic curation, fragmented media ecosystems,
+        and polarized framing. Readers are often exposed to isolated narratives rather than a full
+        view of the same event.
+      </p>
+      <ul class="bullets">
+        <li>High volume, low synthesis</li>
+        <li>Framing differences hidden in plain sight</li>
+        <li>Difficulty comparing coverage across outlets</li>
+      </ul>
+    </div>
+    <div class="visual" aria-hidden="true"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="info-section split">
+    <div>
+      <h2 class="section-title">What Perspective Studies</h2>
+      <p class="section-text">
+        Perspective examines how presenting parallel framings of the same story influences
+        comprehension, trust, and critical engagement. Instead of collapsing coverage into one
+        “final” narrative, the platform makes divergence explicit.
+      </p>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="mini-title">Multi-source inputs</div>
+          <p class="mini-text">Compare reporting across outlets covering the same event.</p>
         </div>
-    </header>
-    <!-- Hero Section for About -->
-    <section class="hero">
-        <!-- Floating shapes for decoration -->
-        <div class="floating-shape" style="width: 350px; height: 350px; background: linear-gradient(135deg, var(--accent), var(--highlight)); top: -80px; left: -120px;"></div>
-        <div class="floating-shape" style="width: 250px; height: 250px; background: linear-gradient(135deg, var(--highlight), var(--accent)); bottom: -60px; right: -100px;"></div>
-        <div class="container hero-content reveal">
-            <h1 class="hero-title">About Perspective</h1>
-            <p class="hero-subtitle">Our story, why we started, and where we’re going.</p>
+        <div class="mini-card">
+          <div class="mini-title">Summaries</div>
+          <p class="mini-text">Reduce overload while preserving the core factual substrate.</p>
         </div>
-    </section>
-    <!-- About Content -->
-    <section class="section section-light">
-        <div class="container reveal">
-            <h2 class="section-title">The Problem We’re Solving</h2>
-            <p class="section-text">
-                In today’s hyper‑connected world, following important stories across borders is harder than ever. Millions of people
-                want to understand news from the United States and India, but almost two‑thirds of them feel overwhelmed by the
-                sheer volume of articles, sensational headlines, and biased takes. Key details get buried, important context
-                goes missing and it’s exhausting to piece together a complete picture.
-            </p>
-            <h2 class="section-title">Why Perspective?</h2>
-            <p class="section-text">
-                Perspective was born from a simple belief: everyone deserves clear, comprehensive information to make
-                informed decisions. We set out to build a platform that cuts through the noise, bringing together diverse
-                sources, summarising the facts, and exposing the ways stories are framed. With AI assisting our curation,
-                we hope to empower you to see beyond a single headline and form your own opinions.
-            </p>
-            <h2 class="section-title">Our Vision for the Future</h2>
-            <p class="section-text">
-                We’re just getting started. In the coming months you’ll see curated feeds tailored to your interests, deep‑dives
-                on trending topics, transparent analysis of biases and tone, and interactive tools to explore differing
-                viewpoints. Our mission is to become the world’s most trusted destination for multi‑perspective news.
-            </p>
+        <div class="mini-card">
+          <div class="mini-title">Framing signals</div>
+          <p class="mini-text">Surface differences in emphasis, tone, and interpretation.</p>
         </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Perspective. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- Scripts -->
-    <script src="script.js"></script>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="info-section">
+    <h2 class="section-title">Open Research Prototype</h2>
+    <p class="section-text">
+      Perspective is developed as an open-source research prototype to support transparency,
+      reproducibility, and community contribution. It functions both as a public interface and
+      as a testbed for studying bias-aware summarization and responsible AI in media systems.
+    </p>
+
+    <div class="callout">
+      <p>
+        Collaboration or academic inquiries: <strong>rahinjain1@gmail.com</strong>
+      </p>
+    </div>
+  </section>
+
+  <div class="info-footer">
+    Contact: <a href="mailto:rahinjain1@gmail.com">rahinjain1@gmail.com</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="how-it-works.html">How it Works</a>
+  </div>
+  <div class="social">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
 </body>
 </html>

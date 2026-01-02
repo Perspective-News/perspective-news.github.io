@@ -1,94 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How It Works – Perspective</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Site Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>How It Works — Perspective</title>
+
+  <!-- Main site styles -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- Main site script -->
+  <script defer src="./script.js"></script>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Perspective Logo" />
-                <span>Perspective</span>
-            </a>
-            <nav id="main-nav" class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="how-it-works.html">How It Works</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <!-- Call to action button linking to GitHub -->
-                <a href="https://github.com/perspective-dev/perspective" class="nav-cta" target="_blank" rel="noopener">GitHub</a>
-                <!-- Secondary button for users to join the early waitlist -->
-                <a href="#" class="nav-cta" id="join-waitlist">Join Waitlist</a>
-                <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
-                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero">
-        <!-- Floating shapes for decoration -->
-        <div class="floating-shape" style="width: 350px; height: 350px; background: linear-gradient(135deg, var(--accent), var(--highlight)); top: -80px; left: -120px;"></div>
-        <div class="floating-shape" style="width: 250px; height: 250px; background: linear-gradient(135deg, var(--highlight), var(--accent)); bottom: -60px; right: -100px;"></div>
-        <div class="container hero-content reveal">
-            <h1 class="hero-title">How It Works</h1>
-            <p class="hero-subtitle">From raw data to balanced insights – a peek behind the scenes.</p>
-        </div>
-    </section>
-    <!-- Steps Section -->
-    <section class="section section-light">
-        <div class="container reveal">
-            <h2 class="section-title">Our Process</h2>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-icon">1</div>
-                    <h3>Collect &amp; Clean</h3>
-                    <p>We continuously gather news articles from trusted publishers. Our pipeline extracts the main content and removes clutter to prepare clean text for analysis.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-icon">2</div>
-                    <h3>Chunk &amp; Embed</h3>
-                    <p>Articles are split into manageable segments and transformed into vector embeddings. This numeric representation captures the semantic meaning of the text.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-icon">3</div>
-                    <h3>Cluster Stories</h3>
-                    <p>Using similarity search and clustering, related articles are grouped into unified stories. This helps us detect when multiple sources are discussing the same topic.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-icon">4</div>
-                    <h3>Summarise &amp; Compare</h3>
-                    <p>Large language models generate concise summaries and identify where viewpoints diverge. We surface key facts, tone, and framing differences across sources.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-icon">5</div>
-                    <h3>Rank &amp; Present</h3>
-                    <p>Stories are ranked based on relevance, recency and diversity of perspectives. You receive a balanced feed with transparent analysis, ready for you to explore.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Perspective. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- Scripts -->
-    <script src="script.js"></script>
+
+<body class="light info-page">
+
+<!-- ================= HEADER (same as index) ================= -->
+<header>
+  <div class="top-ribbon">
+    <div class="ribbon-left">
+      <div class="theme-toggle">
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle">
+          <span class="toggle-icon sun">☀️</span>
+          <span class="toggle-icon moon">🌙</span>
+        </label>
+      </div>
+
+      <div class="region-selector">
+        <select id="regionSelect"></select>
+      </div>
+
+      <div class="language-selector">
+        <select id="languageSelect"></select>
+      </div>
+    </div>
+
+    <div id="times"></div>
+  </div>
+
+  <div class="nav-ribbon">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="./logo.png" alt="Perspective" />
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <a href="#" class="nav-item">Political</a>
+      <a href="#" class="nav-item">Business</a>
+      <a href="#" class="nav-item">Sports</a>
+      <a href="#" class="nav-item">Entertainment</a>
+    </div>
+
+    <div class="nav-right">
+      <input type="text" placeholder="Search news..." />
+    </div>
+  </div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="info-container">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="eyebrow">How It Works</div>
+    <h1>A Research Workflow for Multi-Source News Understanding</h1>
+    <p class="lead">
+      Perspective is built around a simple premise: understanding improves when the
+      same event is examined across many sources, with differences made visible
+      rather than averaged away.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- STEP 1 -->
+  <section class="info-section split">
+    <div>
+      <h2 class="section-title">1) Multi-Source Aggregation</h2>
+      <p class="section-text">
+        Reporting on the same event is collected from a wide range of public news
+        organizations. Articles are grouped by event to enable direct comparison
+        across outlets.
+      </p>
+    </div>
+    <div class="visual"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- STEP 2 -->
+  <section class="info-section split">
+    <div>
+      <h2 class="section-title">2) AI-Assisted Summarization</h2>
+      <p class="section-text">
+        Natural language processing techniques distill coverage into concise
+        summaries that preserve core facts while reducing cognitive overload.
+      </p>
+
+      <div class="callout">
+        <p>
+          Summaries are designed as entry points — not replacements for original
+          journalism.
+        </p>
+      </div>
+    </div>
+    <div class="visual"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- STEP 3 -->
+  <section class="info-section split">
+    <div>
+      <h2 class="section-title">3) Framing & Perspective Surfacing</h2>
+      <p class="section-text">
+        Differences in tone, emphasis, and interpretation are surfaced explicitly.
+        This encourages readers to compare narratives and form independent
+        judgments.
+      </p>
+    </div>
+    <div class="visual"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ================= SOURCES SECTION ================= -->
+  <section class="info-section">
+    <h2 class="section-title">Sources & Coverage</h2>
+
+    <p class="section-text">
+      Source diversity is a deliberate methodological choice. Perspective aggregates
+      reporting from a broad, regionally distributed set of reputable news
+      organizations to avoid reliance on any single editorial worldview.
+    </p>
+
+    <!-- STATS -->
+    <div class="mini-grid">
+      <div class="mini-card">
+        <div class="mini-title">84+ Sources</div>
+        <p class="mini-text">Distinct news organizations</p>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-title">5 Regions</div>
+        <p class="mini-text">
+          South Asia, Southeast Asia, East Asia, Central Asia, Middle East
+        </p>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-title">8 Languages</div>
+        <p class="mini-text">
+          English, Hindi, Urdu, Bengali, Tamil, Japanese, Chinese, Russian
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ================= DYNAMIC SOURCE LIST ================= -->
+  <section class="info-section">
+    <h2 class="section-title">Representative Source List</h2>
+
+    <!-- JS will inject cards here -->
+    <div id="sources-grid" class="mini-grid"></div>
+  </section>
+
+  <div class="info-footer">
+    Research inquiries:
+    <a href="mailto:placeholder@gmail.com">rahinjain1@gmail.com</a>
+  </div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="how-it-works.html">How it Works</a>
+  </div>
+
+  <div class="social">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
+
 </body>
 </html>
