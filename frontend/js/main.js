@@ -1,3 +1,7 @@
+// Main JavaScript for Perspective frontend.
+// This script populates region and language selectors, handles theme toggling,
+// and renders the news feed based on JSON data produced by the backend.
+
 document.addEventListener("DOMContentLoaded", () => {
   /* ================================
      REGION CONFIG
@@ -219,83 +223,82 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ---- global tooltip helpers (safe to keep inside this file) ----
-function ensureCoverageTooltip() {
-  let tip = document.querySelector(".coverage-tooltip");
-  if (!tip) {
-    tip = document.createElement("div");
-    tip.className = "coverage-tooltip";
-    document.body.appendChild(tip);
+  function ensureCoverageTooltip() {
+    let tip = document.querySelector(".coverage-tooltip");
+    if (!tip) {
+      tip = document.createElement("div");
+      tip.className = "coverage-tooltip";
+      document.body.appendChild(tip);
+    }
+    return tip;
   }
-  return tip;
-}
 
-function showTooltip(tip, text) {
-  tip.textContent = text;
-  tip.classList.add("show");
-}
+  function showTooltip(tip, text) {
+    tip.textContent = text;
+    tip.classList.add("show");
+  }
 
-function hideTooltip(tip) {
-  tip.classList.remove("show");
-}
+  function hideTooltip(tip) {
+    tip.classList.remove("show");
+  }
 
-function moveTooltip(tip, clientX, clientY) {
-  const pad = 12;
-  let x = clientX + pad;
-  let y = clientY + pad;
+  function moveTooltip(tip, clientX, clientY) {
+    const pad = 12;
+    let x = clientX + pad;
+    let y = clientY + pad;
 
-  // measure after text is set
-  const rect = tip.getBoundingClientRect();
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
+    // measure after text is set
+    const rect = tip.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
 
-  if (x + rect.width + 8 > vw) x = clientX - rect.width - pad;
-  if (y + rect.height + 8 > vh) y = clientY - rect.height - pad;
+    if (x + rect.width + 8 > vw) x = clientX - rect.width - pad;
+    if (y + rect.height + 8 > vh) y = clientY - rect.height - pad;
 
-  tip.style.left = `${x}px`;
-  tip.style.top = `${y}px`;
-}
+    tip.style.left = `${x}px`;
+    tip.style.top = `${y}px`;
+  }
 
-// ---- REPLACE your existing buildCountryGraph with this ----
-const buildCountryGraph = (coverageEntries, seed = "") => {
-  const tooltip = ensureCoverageTooltip();
+  // ---- buildCountryGraph ----
+  const buildCountryGraph = (coverageEntries, seed = "") => {
+    const tooltip = ensureCoverageTooltip();
 
-  const graph = document.createElement("div");
-  graph.className = "country-graph";
+    const graph = document.createElement("div");
+    graph.className = "country-graph";
 
-  const n = Math.max(coverageEntries.length, 1);
-  const stableSeed =
-    (seed || "")
-      .split("")
-      .reduce((acc, ch) => acc + ch.charCodeAt(0), 0) % 360;
+    const n = Math.max(coverageEntries.length, 1);
+    const stableSeed =
+      (seed || "")
+        .split("")
+        .reduce((acc, ch) => acc + ch.charCodeAt(0), 0) % 360;
 
-  coverageEntries.forEach(([country, pct], i) => {
-    const seg = document.createElement("div");
-    seg.className = "country-segment";
-    seg.style.flex = `${pct} 0 0`;
+    coverageEntries.forEach(([country, pct], i) => {
+      const seg = document.createElement("div");
+      seg.className = "country-segment";
+      seg.style.flex = `${pct} 0 0`;
 
-    const hue = (stableSeed + Math.round((i * 360) / n)) % 360;
-    seg.style.background = `hsl(${hue}, 70%, 50%)`;
+      const hue = (stableSeed + Math.round((i * 360) / n)) % 360;
+      seg.style.background = `hsl(${hue}, 70%, 50%)`;
 
-    // hover handlers
-    seg.addEventListener("mouseenter", e => {
-      showTooltip(tooltip, `${country}: ${pct.toFixed(2)}%`);
-      moveTooltip(tooltip, e.clientX, e.clientY);
+      // hover handlers
+      seg.addEventListener("mouseenter", e => {
+        showTooltip(tooltip, `${country}: ${pct.toFixed(2)}%`);
+        moveTooltip(tooltip, e.clientX, e.clientY);
+      });
+
+      seg.addEventListener("mousemove", e => {
+        moveTooltip(tooltip, e.clientX, e.clientY);
+      });
+
+      seg.addEventListener("mouseleave", () => {
+        hideTooltip(tooltip);
+      });
+
+      graph.appendChild(seg);
     });
 
-    seg.addEventListener("mousemove", e => {
-      moveTooltip(tooltip, e.clientX, e.clientY);
-    });
-
-    seg.addEventListener("mouseleave", () => {
-      hideTooltip(tooltip);
-    });
-
-    graph.appendChild(seg);
-  });
-
-  return graph;
-};
-
+    return graph;
+  };
 
   const buildCard = (event, variant = "big") => {
     const card = document.createElement("article");
@@ -380,7 +383,8 @@ const buildCountryGraph = (coverageEntries, seed = "") => {
   };
 
   if (feed && topGrid && restList && regionSelect) {
-    fetch("./output_events.json")
+    // fetch the events JSON from the data folder generated by the backend
+    fetch("./data/news.json")
       .then(res => res.json())
       .then(data => {
         const allEvents = data?.events || [];
@@ -399,7 +403,8 @@ const buildCountryGraph = (coverageEntries, seed = "") => {
   const sourcesGrid = document.getElementById("sources-grid");
   if (!sourcesGrid) return;
 
-  fetch("./sources.csv")
+  // fetch the CSV from the data folder
+  fetch("./data/sources.csv")
     .then(res => res.text())
     .then(csvText => {
       const rows = csvText.split("\n").slice(1);
