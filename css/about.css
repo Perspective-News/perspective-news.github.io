@@ -1,0 +1,49 @@
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.page{
+  padding: 26px 0 26px 0;
+}
+
+.panel{
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.panel + .panel{
+  margin-top: 14px;
+}
+
+.list{
+  margin: 10px 0 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.callouts{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.callout{
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(124,58,237,0.10), rgba(34,197,94,0.08));
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.callout .title{
+  margin: 0 0 6px 0;
+  font-weight: 900;
+}
+
+@media (max-width: 800px){
+  .callouts{ grid-template-columns: 1fr; }
+}

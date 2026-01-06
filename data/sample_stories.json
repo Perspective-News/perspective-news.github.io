@@ -1,0 +1,46 @@
+{
+  "stories": [
+    {
+      "id": "story-001",
+      "regionIds": ["south-asia", "east-asia"],
+      "languageIds": ["en"],
+      "countries": ["IN", "PK"],
+      "headline": "Regional markets react to policy shifts across borders",
+      "summary": "Multiple outlets report fresh movement in regional markets after new policy announcements, with analysts noting short-term volatility and longer-term uncertainty.",
+      "image": "assets/placeholder.svg",
+      "sources": [
+        { "name": "Example News", "url": "https://example.com/article-1" },
+        { "name": "Another Outlet", "url": "https://example.com/article-2" },
+        { "name": "Global Brief", "url": "https://example.com/article-3" }
+      ]
+    },
+    {
+      "id": "story-002",
+      "regionIds": ["north-america"],
+      "languageIds": ["en"],
+      "countries": ["US", "CA"],
+      "headline": "Cities expand pilot programs aimed at transit reliability",
+      "summary": "Reports highlight new pilot programs in multiple cities intended to reduce delays and improve rider experience, with mixed early feedback.",
+      "image": "assets/placeholder.svg",
+      "sources": [
+        { "name": "Transit Desk", "url": "https://example.com/article-4" },
+        { "name": "City Wire", "url": "https://example.com/article-5" }
+      ]
+    },
+    {
+      "id": "story-003",
+      "regionIds": ["east-asia"],
+      "languageIds": ["en", "hi"],
+      "countries": ["JP", "KR", "CN"],
+      "headline": "Technology supply chains adjust to new demand patterns",
+      "summary": "Coverage suggests manufacturers are rebalancing inventory and logistics as demand shifts across categories, affecting near-term output and pricing.",
+      "image": "assets/placeholder.svg",
+      "sources": [
+        { "name": "Industry Watch", "url": "https://example.com/article-6" },
+        { "name": "Asia Tech", "url": "https://example.com/article-7" },
+        { "name": "Market Pulse", "url": "https://example.com/article-8" },
+        { "name": "The Ledger", "url": "https://example.com/article-9" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perspective — Methodology</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/methodology.css" />
+</head>
+
+<body data-page="methodology">
+  <header class="ribbons">
+    <div class="ribbon">
+      <div class="container ribbon-inner">
+        <div class="ribbon-left">
+          <div class="theme-toggle" title="Toggle dark/light mode">
+            <button id="themeToggleBtn" aria-label="Toggle theme"></button>
+            <div class="label" id="themeLabel">Light</div>
+          </div>
+
+          <div class="controls">
+            <select id="regionSelect" class="select" aria-label="Select region"></select>
+            <select id="languageSelect" class="select" aria-label="Select language"></select>
+          </div>
+        </div>
+
+        <div class="ribbon-right">
+          <div class="times" id="timesContainer" aria-label="City times"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ribbon navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img id="brandLogo" src="assets/logo.svg" alt="Perspective logo" />
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="about.html" data-nav="about">Perspective</a>
+          <a href="methodology.html" data-nav="methodology">Methodology</a>
+          <a href="international.html" data-nav="international">International</a>
+        </nav>
+
+        <div class="nav-search">
+          <input id="searchInput" class="input" type="search" placeholder="Search headlines, summaries, sources…" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="panel">
+      <div class="kicker">Methodology</div>
+      <h1 class="h1">How Perspective works</h1>
+      <p class="p">
+        The product groups coverage around shared events and presents a single, readable summary with transparent sourcing.
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="step">
+        <div class="badge">1</div>
+        <div class="text">
+          <p class="title">Ingest articles</p>
+          <p class="desc">Articles are collected from multiple outlets and normalized into a consistent story format.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">2</div>
+        <div class="text">
+          <p class="title">Cluster by event</p>
+          <p class="desc">Coverage is grouped into shared topics/events so you can compare perspectives without noise.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">3</div>
+        <div class="text">
+          <p class="title">Summarize</p>
+          <p class="desc">A concise summary is generated for each cluster, optimized for quick understanding.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">4</div>
+        <div class="text">
+          <p class="title">Show sources</p>
+          <p class="desc">Click the source count to view linked outlets for transparency and further reading.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">5</div>
+        <div class="text">
+          <p class="title">Filter by region and language</p>
+          <p class="desc">Use the top ribbon to switch editions and languages; stories update instantly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a id="footerGithub" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a id="footerLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-note">© <span id="year"></span> Perspective</div>
+    </div>
+  </footer>
+
+  <div id="modalMount"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

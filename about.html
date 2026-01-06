@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perspective — About</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/about.css" />
+</head>
+
+<body data-page="about">
+  <header class="ribbons">
+    <div class="ribbon">
+      <div class="container ribbon-inner">
+        <div class="ribbon-left">
+          <div class="theme-toggle" title="Toggle dark/light mode">
+            <button id="themeToggleBtn" aria-label="Toggle theme"></button>
+            <div class="label" id="themeLabel">Light</div>
+          </div>
+
+          <div class="controls">
+            <select id="regionSelect" class="select" aria-label="Select region"></select>
+            <select id="languageSelect" class="select" aria-label="Select language"></select>
+          </div>
+        </div>
+
+        <div class="ribbon-right">
+          <div class="times" id="timesContainer" aria-label="City times"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ribbon navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img id="brandLogo" src="assets/logo.svg" alt="Perspective logo" />
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="about.html" data-nav="about">Perspective</a>
+          <a href="methodology.html" data-nav="methodology">Methodology</a>
+          <a href="international.html" data-nav="international">International</a>
+        </nav>
+
+        <div class="nav-search">
+          <input id="searchInput" class="input" type="search" placeholder="Search headlines, summaries, sources…" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="panel">
+      <div class="kicker">About</div>
+      <h1 class="h1">Perspective</h1>
+      <p class="p">
+        Perspective is a multi-source news reader that clusters articles into shared events and summarizes them—so you can understand what’s happening without relying on a single outlet.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2 class="h2">Vision</h2>
+      <p class="p">
+        To reshape how the world understands itself—by uniting voices, bridging borders, and delivering every story through an unbiased, human lens.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2 class="h2">What you’ll find here</h2>
+      <ul class="list">
+        <li>Region- and language-filtered feeds powered by a JSON data file.</li>
+        <li>Top stories ranked by number of sources, plus compact cards for everything else.</li>
+        <li>Source transparency via a one-click list of linked outlets.</li>
+      </ul>
+
+      <div class="callouts">
+        <div class="callout">
+          <p class="title">Suggestion box</p>
+          <p class="p">Use the button on the Home page to share feedback and feature requests.</p>
+        </div>
+        <div class="callout">
+          <p class="title">Open development</p>
+          <p class="p">Visit the GitHub repo from the Home page footer or quick link card.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a id="footerGithub" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a id="footerLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-note">© <span id="year"></span> Perspective</div>
+    </div>
+  </footer>
+
+  <div id="modalMount"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

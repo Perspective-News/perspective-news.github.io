@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perspective — Home</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body data-page="index">
+  <header class="ribbons">
+    <!-- Ribbon 1: theme, region, language, times -->
+    <div class="ribbon">
+      <div class="container ribbon-inner">
+        <div class="ribbon-left">
+          <div class="theme-toggle" title="Toggle dark/light mode">
+            <button id="themeToggleBtn" aria-label="Toggle theme"></button>
+            <div class="label" id="themeLabel">Light</div>
+          </div>
+
+          <div class="controls">
+            <select id="regionSelect" class="select" aria-label="Select region"></select>
+            <select id="languageSelect" class="select" aria-label="Select language"></select>
+          </div>
+        </div>
+
+        <div class="ribbon-right">
+          <div class="times" id="timesContainer" aria-label="City times"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ribbon 2: nav + search -->
+    <div class="ribbon navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img id="brandLogo" src="assets/logo.svg" alt="Perspective logo" />
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="about.html" data-nav="about">Perspective</a>
+          <a href="methodology.html" data-nav="methodology">Methodology</a>
+          <a href="international.html" data-nav="international">International</a>
+        </nav>
+
+        <div class="nav-search">
+          <input id="searchInput" class="input" type="search" placeholder="Search headlines, summaries, sources…" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-panel">
+          <div class="kicker">Welcome to Perspective</div>
+          <h1 class="h1">See the same story from many voices.</h1>
+          <p class="p">
+            News is scattered across countries. Perspective clusters coverage around shared events and summarizes across sources—so you can understand what’s happening without losing the diversity of viewpoints.
+          </p>
+        </div>
+
+        <div class="stats-panel" aria-label="Summary stats">
+          <div class="stats-row">
+            <div class="stats-label">Stories (filtered)</div>
+            <div class="stats-value" id="statStories">—</div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-label">Total sources</div>
+            <div class="stats-value" id="statSources">—</div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-label">Top card set</div>
+            <div class="stats-value">4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main">
+      <div class="section-title">
+        <h2 class="h2">Top stories</h2>
+        <p class="p">Ranked by number of sources (filtered by region + language).</p>
+      </div>
+
+      <div id="bigCards" class="cards-grid-big" aria-label="Top story cards"></div>
+
+      <div class="quick-cards" aria-label="Quick links">
+        <div class="quick-card">
+          <div class="text">
+            <p class="title">Suggestion box for Perspective</p>
+            <p class="desc">Share feedback to help improve the product.</p>
+          </div>
+          <a class="btn primary" id="suggestionBtn" target="_blank" rel="noopener">Open form</a>
+        </div>
+
+        <div class="quick-card">
+          <div class="text">
+            <p class="title">Project GitHub repo</p>
+            <p class="desc">Follow progress and development updates.</p>
+          </div>
+          <a class="btn" id="githubBtn" target="_blank" rel="noopener">View GitHub</a>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h2 class="h2">More stories</h2>
+        <p class="p">Compact cards for the rest (still filtered).</p>
+      </div>
+
+      <div id="smallCards" class="cards-grid-small" aria-label="More story cards"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a id="footerGithub" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a id="footerLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-note">© <span id="year"></span> Perspective</div>
+    </div>
+  </footer>
+
+  <!-- Modal mount -->
+  <div id="modalMount"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

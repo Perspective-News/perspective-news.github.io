@@ -1,0 +1,80 @@
+{
+  "site": {
+    "name": "Perspective",
+    "logoPath": "assets/logo.svg",
+    "links": {
+      "suggestionForm": "https://forms.gle/REPLACE_WITH_YOUR_FORM",
+      "githubRepo": "https://github.com/Perspective-News",
+      "linkedin": "https://www.linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN"
+    }
+  },
+
+  "regions": [
+    {
+      "id": "south-asia",
+      "label": "South Asia Edition",
+      "cities": [
+        { "name": "Delhi", "tz": "Asia/Kolkata" },
+        { "name": "Karachi", "tz": "Asia/Karachi" },
+        { "name": "Dhaka", "tz": "Asia/Dhaka" },
+        { "name": "Colombo", "tz": "Asia/Colombo" },
+        { "name": "Kathmandu", "tz": "Asia/Kathmandu" }
+      ]
+    },
+    {
+      "id": "southeast-asia",
+      "label": "Southeast Asia Edition",
+      "cities": [
+        { "name": "Jakarta", "tz": "Asia/Jakarta" },
+        { "name": "Manila", "tz": "Asia/Manila" },
+        { "name": "Bangkok", "tz": "Asia/Bangkok" },
+        { "name": "Singapore", "tz": "Asia/Singapore" },
+        { "name": "Ho Chi Minh City", "tz": "Asia/Ho_Chi_Minh" }
+      ]
+    },
+    {
+      "id": "east-asia",
+      "label": "East Asia Edition",
+      "cities": [
+        { "name": "Tokyo", "tz": "Asia/Tokyo" },
+        { "name": "Shanghai", "tz": "Asia/Shanghai" },
+        { "name": "Beijing", "tz": "Asia/Shanghai" },
+        { "name": "Seoul", "tz": "Asia/Seoul" },
+        { "name": "Taipei", "tz": "Asia/Taipei" }
+      ]
+    },
+    {
+      "id": "middle-east",
+      "label": "Middle East Edition",
+      "cities": [
+        { "name": "Riyadh", "tz": "Asia/Riyadh" },
+        { "name": "Dubai", "tz": "Asia/Dubai" },
+        { "name": "Tehran", "tz": "Asia/Tehran" },
+        { "name": "Baghdad", "tz": "Asia/Baghdad" },
+        { "name": "Jerusalem", "tz": "Asia/Jerusalem" }
+      ]
+    },
+    {
+      "id": "central-asia",
+      "label": "Central Asia Edition",
+      "cities": [
+        { "name": "Tashkent", "tz": "Asia/Tashkent" },
+        { "name": "Almaty", "tz": "Asia/Almaty" },
+        { "name": "Bishkek", "tz": "Asia/Bishkek" },
+        { "name": "Dushanbe", "tz": "Asia/Dushanbe" },
+        { "name": "Ashgabat", "tz": "Asia/Ashgabat" }
+      ]
+    }
+  ],
+
+  "languages": [
+    { "id": "en", "label": "English" },
+    { "id": "zh", "label": "Mandarin Chinese" },
+    { "id": "hi", "label": "Hindi" },
+    { "id": "bn", "label": "Bengali" },
+    { "id": "pa", "label": "Punjabi" },
+    { "id": "ko", "label": "Korean" },
+    { "id": "vi", "label": "Vietnamese" },
+    { "id": "ja", "label": "Japanese" }
+  ]
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perspective — International</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/international.css" />
+</head>
+
+<body data-page="international">
+  <header class="ribbons">
+    <div class="ribbon">
+      <div class="container ribbon-inner">
+        <div class="ribbon-left">
+          <div class="theme-toggle" title="Toggle dark/light mode">
+            <button id="themeToggleBtn" aria-label="Toggle theme"></button>
+            <div class="label" id="themeLabel">Light</div>
+          </div>
+
+          <div class="controls">
+            <select id="regionSelect" class="select" aria-label="Select region"></select>
+            <select id="languageSelect" class="select" aria-label="Select language"></select>
+          </div>
+        </div>
+
+        <div class="ribbon-right">
+          <div class="times" id="timesContainer" aria-label="City times"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ribbon navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img id="brandLogo" src="assets/logo.svg" alt="Perspective logo" />
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="about.html" data-nav="about">Perspective</a>
+          <a href="methodology.html" data-nav="methodology">Methodology</a>
+          <a href="international.html" data-nav="international">International</a>
+        </nav>
+
+        <div class="nav-search">
+          <input id="searchInput" class="input" type="search" placeholder="Search headlines, summaries, sources…" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <div class="page-panel">
+        <div class="kicker">International</div>
+        <h1 class="h1">All regions, one feed.</h1>
+        <p class="p">
+          This page shows stories across all regions (still filtered by your selected language and search query). You can still switch region to update the time chips.
+        </p>
+      </div>
+    </section>
+
+    <section class="main">
+      <div class="section-title">
+        <h2 class="h2">Top stories</h2>
+        <p class="p">Across all regions, ranked by number of sources.</p>
+      </div>
+
+      <div id="bigCards" class="cards-grid-big" aria-label="Top story cards"></div>
+
+      <div class="section-title">
+        <h2 class="h2">More stories</h2>
+        <p class="p">Compact cards for the rest.</p>
+      </div>
+
+      <div id="smallCards" class="cards-grid-small" aria-label="More story cards"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a id="footerGithub" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a id="footerLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-note">© <span id="year"></span> Perspective</div>
+    </div>
+  </footer>
+
+  <div id="modalMount"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
